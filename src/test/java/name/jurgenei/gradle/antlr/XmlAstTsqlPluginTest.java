@@ -33,7 +33,7 @@ public class XmlAstTsqlPluginTest {
         Assert.assertEquals("tsql_file", task.getStartRule().get());
         Assert.assertTrue(task.getIncludes().get().contains("**/*.sql"));
         Assert.assertEquals(".xml", task.getTargetExtension().get());
-        Assert.assertEquals("compact", task.getXirFormat().get());
+        Assert.assertEquals("compact", task.getOutputFormat().get());
     }
 
     @Test
@@ -45,9 +45,9 @@ public class XmlAstTsqlPluginTest {
 
         final XmlAstTsqlGradleTask task = (XmlAstTsqlGradleTask) project.getTasks().getByName("tsqlXmlAst");
         task.getTargetExtension().set(".xir");
-        task.getXirFormat().set("beautified");
+        task.getOutputFormat().set("beautified");
 
         Assert.assertEquals(".xir", task.getTargetExtension().get());
-        Assert.assertEquals("beautified", task.getXirFormat().get());
+        Assert.assertEquals("beautified", task.getOutputFormat().get());
     }
 }

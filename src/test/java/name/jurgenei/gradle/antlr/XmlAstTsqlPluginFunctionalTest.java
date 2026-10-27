@@ -50,7 +50,7 @@ public class XmlAstTsqlPluginFunctionalTest {
                         println "lexerClassName=${t.lexerClassName.get()}"
                         println "startRule=${t.startRule.get()}"
                         println "targetExtension=${t.targetExtension.get()}"
-                        println "xirFormat=${t.xirFormat.get()}"
+                        println "outputFormat=${t.outputFormat.get()}"
                     }
                 }
                 """);
@@ -63,7 +63,7 @@ public class XmlAstTsqlPluginFunctionalTest {
         Assert.assertTrue(output.contains("lexerClassName=name.jurgenei.parsers.TSqlLexer"));
         Assert.assertTrue(output.contains("startRule=tsql_file"));
         Assert.assertTrue(output.contains("targetExtension=.xml"));
-        Assert.assertTrue(output.contains("xirFormat=compact"));
+        Assert.assertTrue(output.contains("outputFormat=compact"));
     }
 
     @Test
@@ -78,14 +78,14 @@ public class XmlAstTsqlPluginFunctionalTest {
 
                 tasks.named('tsqlXmlAst', name.jurgenei.gradle.antlr.XmlAstTsqlGradleTask) {
                     targetExtension.set('.xir')
-                    xirFormat.set('beautified')
+                    outputFormat.set('beautified')
                 }
 
                 tasks.register('printTsqlXirDefaults') {
                     doLast {
                         def t = tasks.named('tsqlXmlAst').get()
                         println "targetExtension=${t.targetExtension.get()}"
-                        println "xirFormat=${t.xirFormat.get()}"
+                        println "outputFormat=${t.outputFormat.get()}"
                     }
                 }
                 """);
@@ -94,7 +94,7 @@ public class XmlAstTsqlPluginFunctionalTest {
         final String output = result.getOutput();
 
         Assert.assertTrue(output.contains("targetExtension=.xir"));
-        Assert.assertTrue(output.contains("xirFormat=beautified"));
+        Assert.assertTrue(output.contains("outputFormat=beautified"));
     }
 
     private static BuildResult run(final File projectDir, final String... args) {
