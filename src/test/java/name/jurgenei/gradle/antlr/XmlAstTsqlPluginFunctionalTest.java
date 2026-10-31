@@ -1,4 +1,4 @@
-package name.jurgenei.gradle.antlr;
+package org.flowdigger.gradle.antlr;
 
 import org.gradle.testkit.runner.BuildResult;
 import org.gradle.testkit.runner.GradleRunner;
@@ -23,7 +23,7 @@ public class XmlAstTsqlPluginFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'name.jurgenei.gradle.antlr.tsql'
+                    id 'org.flowdigger.gradle.antlr.tsql'
                 }
                 """);
 
@@ -39,7 +39,7 @@ public class XmlAstTsqlPluginFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'name.jurgenei.gradle.antlr.tsql'
+                    id 'org.flowdigger.gradle.antlr.tsql'
                 }
 
                 tasks.register('printTsqlDefaults') {
@@ -59,8 +59,8 @@ public class XmlAstTsqlPluginFunctionalTest {
         final String output = result.getOutput();
 
         Assert.assertTrue(output.contains("grammar=tsql"));
-        Assert.assertTrue(output.contains("parserClassName=name.jurgenei.parsers.TSqlParser"));
-        Assert.assertTrue(output.contains("lexerClassName=name.jurgenei.parsers.TSqlLexer"));
+        Assert.assertTrue(output.contains("parserClassName=org.flowdigger.parsers.TSqlParser"));
+        Assert.assertTrue(output.contains("lexerClassName=org.flowdigger.parsers.TSqlLexer"));
         Assert.assertTrue(output.contains("startRule=tsql_file"));
         Assert.assertTrue(output.contains("targetExtension=.xml"));
         Assert.assertTrue(output.contains("xirFormat=compact"));
@@ -73,10 +73,10 @@ public class XmlAstTsqlPluginFunctionalTest {
         writeBuildFile(projectDir, """
                 plugins {
                     id 'java'
-                    id 'name.jurgenei.gradle.antlr.tsql'
+                    id 'org.flowdigger.gradle.antlr.tsql'
                 }
 
-                tasks.named('tsqlXmlAst', name.jurgenei.gradle.antlr.XmlAstTsqlGradleTask) {
+                tasks.named('tsqlXmlAst', org.flowdigger.gradle.antlr.XmlAstTsqlGradleTask) {
                     targetExtension.set('.xir')
                     xirFormat.set('beautified')
                 }

@@ -1,4 +1,4 @@
-package name.jurgenei.parsers;
+package org.flowdigger.parsers;
 
 import java.io.File;
 import java.nio.file.Files;

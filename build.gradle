@@ -4,14 +4,14 @@ import java.security.MessageDigest
  * T-SQL language parser plugin.
  * J.S. Hildebrand (c) 2026
  */
-import name.jurgenei.gradle.antlr.XmlAstGradleTask
+import org.flowdigger.gradle.antlr.XmlAstGradleTask
 
 plugins {
     id 'java'
     id 'antlr'
     id 'java-gradle-plugin'
     id 'jacoco'
-    id 'name.jurgenei.gradle.antlr'
+    id 'org.flowdigger.gradle.antlr'
     id 'maven-publish'
     id 'signing'
     id 'org.owasp.dependencycheck' version '10.0.3'
@@ -19,7 +19,7 @@ plugins {
     id 'org.sonarqube' version '6.0.1.5171'
 }
 
-group = 'name.jurgenei.gradle'
+group = 'org.flowdigger.gradle'
 version = '0.1.0'
 
 ext {
@@ -32,8 +32,8 @@ gradlePlugin {
     vcsUrl = 'https://github.com/jurgenei/gradle-antlr-tsql-plugin'
     plugins {
         xmlAstTsql {
-            id = 'name.jurgenei.gradle.antlr.tsql'
-            implementationClass = 'name.jurgenei.gradle.antlr.XmlAstTsqlPlugin'
+            id = 'org.flowdigger.gradle.antlr.tsql'
+            implementationClass = 'org.flowdigger.gradle.antlr.XmlAstTsqlPlugin'
             displayName = 'Gradle ANTLR T-SQL Plugin'
             description = 'Preconfigured XML AST task support for T-SQL grammar parsing.'
             tags.set(['antlr', 'xml', 'ast', 'tsql'])
@@ -55,7 +55,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'name.jurgenei.gradle:gradle-antlr-plugin:0.1.7'
+    implementation 'org.flowdigger.gradle:gradle-antlr-plugin:0.1.7'
     implementation 'org.antlr:antlr4-runtime:4.13.2'
 
     antlr 'org.antlr:antlr4:4.13.2'
@@ -160,9 +160,9 @@ sonar {
     }
 }
 
-def grammarDir = file('src/main/antlr/name/jurgenei/parsers')
+def grammarDir = file('src/main/antlr/org/flowdigger/parsers')
 def antlrOutputDir = file('generated-src/antlr/main')
-def antlrPackage = 'name.jurgenei.parsers'
+def antlrPackage = 'org.flowdigger.parsers'
 
 tasks.register('generateLexerSources', JavaExec) {
     group = 'build'
@@ -291,8 +291,8 @@ tasks.register('verifyGrammarSources') {
     group = 'verification'
     description = 'Checks that T-SQL grammar source files are present.'
     def required = [
-            'src/main/antlr/name/jurgenei/parsers/TSqlLexer.g4',
-            'src/main/antlr/name/jurgenei/parsers/TSqlParser.g4'
+            'src/main/antlr/org/flowdigger/parsers/TSqlLexer.g4',
+            'src/main/antlr/org/flowdigger/parsers/TSqlParser.g4'
     ]
     def requiredFiles = required.collect { file(it) }
     inputs.files(requiredFiles)
@@ -316,8 +316,8 @@ def configureXmlAstTask = { XmlAstGradleTask t, String sourcePath, String output
     t.dependsOn tasks.named('compileAntlrSources')
     t.sourceDirectory.set(layout.projectDirectory.dir(sourcePath))
     t.destinationDirectory.set(layout.buildDirectory.dir("xmlast-samples/${outputDirName}"))
-    t.parserClassName.set('name.jurgenei.parsers.TSqlParser')
-    t.lexerClassName.set('name.jurgenei.parsers.TSqlLexer')
+    t.parserClassName.set('org.flowdigger.parsers.TSqlParser')
+    t.lexerClassName.set('org.flowdigger.parsers.TSqlLexer')
     t.startRule.set('tsql_file')
     t.includes.set(['**/*.sql'])
     t.targetExtension.set('.xml')

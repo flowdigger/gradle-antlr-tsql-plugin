@@ -1,4 +1,4 @@
-package name.jurgenei.gradle.antlr;
+package org.flowdigger.gradle.antlr;
 
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.work.DisableCachingByDefault;
@@ -22,8 +22,8 @@ public abstract class XmlAstTsqlGradleTask extends XmlAstGradleTask {
         super(objects);
         LanguageTaskDefaults.of(
                 "tsql",
-                "name.jurgenei.parsers.TSqlParser",
-                "name.jurgenei.parsers.TSqlLexer",
+                "org.flowdigger.parsers.TSqlParser",
+                "org.flowdigger.parsers.TSqlLexer",
                 "tsql_file",
                 List.of("**/*.sql"))
             .applyTo(this);

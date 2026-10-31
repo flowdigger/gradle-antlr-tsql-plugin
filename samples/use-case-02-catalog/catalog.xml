@@ -1,8 +1,8 @@
 <catalog>
   <grammar
       name="tsql"
-      parser="name.jurgenei.parsers.TSqlParser"
-      lexer="name.jurgenei.parsers.TSqlLexer"
+      parser="org.flowdigger.parsers.TSqlParser"
+      lexer="org.flowdigger.parsers.TSqlLexer"
       start-rule="tsql_file"/>
 </catalog>
 
