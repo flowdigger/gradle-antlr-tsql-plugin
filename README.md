@@ -2,7 +2,6 @@
 
 ![Conformance](https://img.shields.io/badge/Conformance-Check--All%20Passing-brightgreen)
 
-[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/name.flowdigger.gradle.antlr.tsql?label=Plugin%20Portal)](https://plugins.gradle.org/plugin/name.flowdigger.gradle.antlr.tsql)
 [![Build and Test](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/ci.yml?query=branch%3Amain)
 [![Coverage CI](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml?query=branch%3Amain)
 [![Coverage](https://codecov.io/gh/flowdigger/gradle-antlr-tsql-plugin/graph/badge.svg?branch=main)](https://app.codecov.io/gh/flowdigger/gradle-antlr-tsql-plugin?branch=main)
@@ -39,8 +38,6 @@ plugins {
 	id 'name.flowdigger.gradle.antlr.tsql' version '0.1.0'
 }
 ```
-
-Plugin Portal page: https://plugins.gradle.org/plugin/name.flowdigger.gradle.antlr.tsql
 
 ## What Plugin Adds
 

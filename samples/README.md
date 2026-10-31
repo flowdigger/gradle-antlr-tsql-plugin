@@ -17,4 +17,3 @@ These files are designed as copy/paste templates for grammar module where:
 - lexer class: `name.flowdigger.parsers.TSqlLexer`
 - parser entry rule: `tsql_file`
 - sample directory: `src/test/resources/tsql`
-
