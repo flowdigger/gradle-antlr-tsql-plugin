@@ -2,17 +2,17 @@
 
 ![Conformance](https://img.shields.io/badge/Conformance-Check--All%20Passing-brightgreen)
 
-[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/name.jurgenei.gradle.antlr.tsql?label=Plugin%20Portal)](https://plugins.gradle.org/plugin/name.jurgenei.gradle.antlr.tsql)
-[![Build and Test](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/ci.yml?query=branch%3Amain)
-[![Coverage CI](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml?query=branch%3Amain)
-[![Coverage](https://codecov.io/gh/jurgenei/gradle-antlr-tsql-plugin/graph/badge.svg?branch=main)](https://app.codecov.io/gh/jurgenei/gradle-antlr-tsql-plugin?branch=main)
+[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/name.flowdigger.gradle.antlr.tsql?label=Plugin%20Portal)](https://plugins.gradle.org/plugin/name.flowdigger.gradle.antlr.tsql)
+[![Build and Test](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/ci.yml?query=branch%3Amain)
+[![Coverage CI](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml?query=branch%3Amain)
+[![Coverage](https://codecov.io/gh/flowdigger/gradle-antlr-tsql-plugin/graph/badge.svg?branch=main)](https://app.codecov.io/gh/flowdigger/gradle-antlr-tsql-plugin?branch=main)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Java](https://img.shields.io/badge/java-21+-green.svg)](https://www.oracle.com/java/)
 [![Gradle](https://img.shields.io/badge/gradle-8+-blue.svg)](https://gradle.org/)
 
 `gradle-antlr-tsql-plugin` provides preconfigured XML AST task support for T-SQL parsing workflows.
 
-It builds on `name.jurgenei.gradle.antlr` and offers task defaults tailored for `TSqlLexer`/`TSqlParser` use cases.
+It builds on `name.flowdigger.gradle.antlr` and offers task defaults tailored for `TSqlLexer`/`TSqlParser` use cases.
 
 ## Source Grammar
 
@@ -22,8 +22,8 @@ This plugin vendors ANTLR grammars from:
 
 Included grammar files:
 
-- `src/main/antlr/name/jurgenei/parsers/TSqlLexer.g4`
-- `src/main/antlr/name/jurgenei/parsers/TSqlParser.g4`
+- `src/main/antlr/name/flowdigger/parsers/TSqlLexer.g4`
+- `src/main/antlr/name/flowdigger/parsers/TSqlParser.g4`
 
 ## Use Cases
 
@@ -36,11 +36,11 @@ Included grammar files:
 
 ```groovy
 plugins {
-	id 'name.jurgenei.gradle.antlr.tsql' version '0.1.0'
+	id 'name.flowdigger.gradle.antlr.tsql' version '0.1.0'
 }
 ```
 
-Plugin Portal page: https://plugins.gradle.org/plugin/name.jurgenei.gradle.antlr.tsql
+Plugin Portal page: https://plugins.gradle.org/plugin/name.flowdigger.gradle.antlr.tsql
 
 ## What Plugin Adds
 
@@ -51,8 +51,8 @@ Plugin Portal page: https://plugins.gradle.org/plugin/name.jurgenei.gradle.antlr
 Default task conventions:
 
 - `grammar = tsql`
-- `parserClassName = name.jurgenei.parsers.TSqlParser`
-- `lexerClassName = name.jurgenei.parsers.TSqlLexer`
+- `parserClassName = name.flowdigger.parsers.TSqlParser`
+- `lexerClassName = name.flowdigger.parsers.TSqlLexer`
 - `startRule = tsql_file`
 - `includes = ['**/*.sql']`
 
@@ -61,10 +61,10 @@ Default task conventions:
 ```groovy
 plugins {
 	id 'java'
-	id 'name.jurgenei.gradle.antlr.tsql' version '0.1.0'
+	id 'name.flowdigger.gradle.antlr.tsql' version '0.1.0'
 }
 
-tasks.named('tsqlXmlAst', name.jurgenei.gradle.antlr.XmlAstTsqlGradleTask) {
+tasks.named('tsqlXmlAst', name.flowdigger.gradle.antlr.XmlAstTsqlGradleTask) {
 	sourceDirectory.set(layout.projectDirectory.dir('src/test/resources/tsql'))
 	destinationDirectory.set(layout.buildDirectory.dir('xmlast-tsql'))
 	targetExtension.set('.xml')
@@ -75,7 +75,7 @@ tasks.named('tsqlXmlAst', name.jurgenei.gradle.antlr.XmlAstTsqlGradleTask) {
 S-expression output variant:
 
 ```groovy
-tasks.named('tsqlXmlAst', name.jurgenei.gradle.antlr.XmlAstTsqlGradleTask) {
+tasks.named('tsqlXmlAst', name.flowdigger.gradle.antlr.XmlAstTsqlGradleTask) {
 	targetExtension.set('.xir')
 	xirFormat.set('beautified')
 }

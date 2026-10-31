@@ -13,8 +13,8 @@ This directory contains Gradle build use-case examples for validating T-SQL samp
 
 These files are designed as copy/paste templates for grammar module where:
 
-- parser class: `name.jurgenei.parsers.TSqlParser`
-- lexer class: `name.jurgenei.parsers.TSqlLexer`
+- parser class: `name.flowdigger.parsers.TSqlParser`
+- lexer class: `name.flowdigger.parsers.TSqlLexer`
 - parser entry rule: `tsql_file`
 - sample directory: `src/test/resources/tsql`
 
