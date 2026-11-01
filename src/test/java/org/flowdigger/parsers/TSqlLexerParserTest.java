@@ -1,4 +1,4 @@
-package name.jurgenei.parsers;
+package org.flowdigger.parsers;
 
 import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.CharStream;
@@ -36,8 +36,8 @@ public class TSqlLexerParserTest {
 
     private void loadParserClasses() throws Exception {
         try {
-            final Class<?> lexerClass = Class.forName("name.jurgenei.parsers.TSqlLexer");
-            final Class<?> parserClass = Class.forName("name.jurgenei.parsers.TSqlParser");
+            final Class<?> lexerClass = Class.forName("org.flowdigger.parsers.TSqlLexer");
+            final Class<?> parserClass = Class.forName("org.flowdigger.parsers.TSqlParser");
 
             lexerConstructor = lexerClass.getConstructor(CharStream.class);
             parserConstructor = parserClass.getConstructor(org.antlr.v4.runtime.TokenStream.class);

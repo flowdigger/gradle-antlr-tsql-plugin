@@ -24,8 +24,8 @@ tasks.register('verifyGrammarSources') {
     group = 'verification'
     description = 'Checks that T-SQL grammar source files are present in root project.'
     def requiredFiles = [
-            rootProject.file('src/main/antlr/name/jurgenei/parsers/TSqlLexer.g4'),
-            rootProject.file('src/main/antlr/name/jurgenei/parsers/TSqlParser.g4')
+            rootProject.file('src/main/antlr/org/flowdigger/parsers/TSqlLexer.g4'),
+            rootProject.file('src/main/antlr/org/flowdigger/parsers/TSqlParser.g4')
     ]
     inputs.files(requiredFiles)
     doLast {

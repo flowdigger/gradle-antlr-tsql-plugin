@@ -2,7 +2,7 @@
 
 ![Conformance](https://img.shields.io/badge/Conformance-Check--All%20Passing-brightgreen)
 
-[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/name.jurgenei.gradle.antlr.tsql?label=Plugin%20Portal)](https://plugins.gradle.org/plugin/name.jurgenei.gradle.antlr.tsql)
+[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/org.flowdigger.gradle.antlr.tsql?label=Plugin%20Portal)](https://plugins.gradle.org/plugin/org.flowdigger.gradle.antlr.tsql)
 [![Build and Test](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/ci.yml)
 [![JUnit Report](https://img.shields.io/badge/JUnit-Report-blue?logo=githubactions)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/ci.yml)
 [![Coverage CI](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml)
@@ -18,7 +18,7 @@
 
 `gradle-antlr-tsql-plugin` provides preconfigured XML AST task support for T-SQL parsing workflows.
 
-It builds on `name.jurgenei.gradle.antlr` and offers task defaults tailored for `TSqlLexer`/`TSqlParser` use cases.
+It builds on `org.flowdigger.gradle.antlr` and offers task defaults tailored for `TSqlLexer`/`TSqlParser` use cases.
 
 ## Position in XIR spine
 
@@ -38,8 +38,8 @@ This plugin vendors ANTLR grammars from:
 
 Included grammar files:
 
-- `src/main/antlr/name/jurgenei/parsers/TSqlLexer.g4`
-- `src/main/antlr/name/jurgenei/parsers/TSqlParser.g4`
+- `src/main/antlr/org/flowdigger/parsers/TSqlLexer.g4`
+- `src/main/antlr/org/flowdigger/parsers/TSqlParser.g4`
 
 ## Use Cases
 
@@ -52,11 +52,11 @@ Included grammar files:
 
 ```groovy
 plugins {
-	id 'name.jurgenei.gradle.antlr.tsql' version '0.1.0'
+	id 'org.flowdigger.gradle.antlr.tsql' version '0.1.0'
 }
 ```
 
-Plugin Portal page: https://plugins.gradle.org/plugin/name.jurgenei.gradle.antlr.tsql
+Plugin Portal page: https://plugins.gradle.org/plugin/org.flowdigger.gradle.antlr.tsql
 
 ## What Plugin Adds
 
@@ -67,8 +67,8 @@ Plugin Portal page: https://plugins.gradle.org/plugin/name.jurgenei.gradle.antlr
 Default task conventions:
 
 - `grammar = tsql`
-- `parserClassName = name.jurgenei.parsers.TSqlParser`
-- `lexerClassName = name.jurgenei.parsers.TSqlLexer`
+- `parserClassName = org.flowdigger.parsers.TSqlParser`
+- `lexerClassName = org.flowdigger.parsers.TSqlLexer`
 - `startRule = tsql_file`
 - `includes = ['**/*.sql']`
 
@@ -77,10 +77,10 @@ Default task conventions:
 ```groovy
 plugins {
 	id 'java'
-	id 'name.jurgenei.gradle.antlr.tsql' version '0.1.0'
+	id 'org.flowdigger.gradle.antlr.tsql' version '0.1.0'
 }
 
-tasks.named('tsqlXmlAst', name.jurgenei.gradle.antlr.XmlAstTsqlGradleTask) {
+tasks.named('tsqlXmlAst', org.flowdigger.gradle.antlr.XmlAstTsqlGradleTask) {
 	sourceDirectory.set(layout.projectDirectory.dir('src/test/resources/tsql'))
 	destinationDirectory.set(layout.buildDirectory.dir('xmlast-tsql'))
 	targetExtension.set('.xml')
@@ -91,7 +91,7 @@ tasks.named('tsqlXmlAst', name.jurgenei.gradle.antlr.XmlAstTsqlGradleTask) {
 S-expression output variant:
 
 ```groovy
-tasks.named('tsqlXmlAst', name.jurgenei.gradle.antlr.XmlAstTsqlGradleTask) {
+tasks.named('tsqlXmlAst', org.flowdigger.gradle.antlr.XmlAstTsqlGradleTask) {
 	targetExtension.set('.xir')
 	xirFormat.set('beautified')
 }
