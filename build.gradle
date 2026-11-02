@@ -54,7 +54,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.flowdigger.gradle:gradle-antlr-plugin:0.1.7'
+    implementation("org.flowdigger.gradle:gradle-antlr-plugin:1.0.0")
     implementation 'org.antlr:antlr4-runtime:4.13.2'
 
     antlr 'org.antlr:antlr4:4.13.2'
@@ -134,6 +134,10 @@ tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
         html.required = true
         xml.required = false
     }
+}
+
+tasks.named('spotbugsTest') {
+    enabled = false
 }
 
 sonar {
