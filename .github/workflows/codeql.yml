@@ -28,6 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Checkout shared gradle-antlr-plugin build
+        run: git clone --depth 1 https://github.com/flowdigger/gradle-antlr-plugin.git ../gradle-antlr-plugin
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
@@ -39,4 +42,3 @@ jobs:
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
-
