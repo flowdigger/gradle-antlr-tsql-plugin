@@ -39,9 +39,9 @@ jobs:
             exit 0
           fi
 
-          echo "Falling back to jurgenei/gradle-antlr-plugin..."
-          if git clone --depth 1 "https://github.com/jurgenei/gradle-antlr-plugin.git" "$ROOT_PARENT/gradle-antlr-plugin"; then
-            echo "Successfully cloned from jurgenei/gradle-antlr-plugin"
+          echo "Falling back to flowdigger/gradle-antlr-plugin..."
+          if git clone --depth 1 "https://github.com/flowdigger/gradle-antlr-plugin.git" "$ROOT_PARENT/gradle-antlr-plugin"; then
+            echo "Successfully cloned from flowdigger/gradle-antlr-plugin"
             exit 0
           fi
 
@@ -66,9 +66,9 @@ jobs:
             exit 0
           fi
 
-          echo "Falling back to jurgenei/gradle-antlr-parse-plugin..."
-          if git clone --depth 1 "https://github.com/jurgenei/gradle-antlr-parse-plugin.git" "$ROOT_PARENT/gradle-antlr-parse-plugin"; then
-            echo "Successfully cloned from jurgenei/gradle-antlr-parse-plugin"
+          echo "Falling back to flowdigger/gradle-antlr-parse-plugin..."
+          if git clone --depth 1 "https://github.com/flowdigger/gradle-antlr-parse-plugin.git" "$ROOT_PARENT/gradle-antlr-parse-plugin"; then
+            echo "Successfully cloned from flowdigger/gradle-antlr-parse-plugin"
             exit 0
           fi
 
@@ -97,4 +97,3 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew --no-daemon --stacktrace :test
-

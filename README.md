@@ -2,16 +2,15 @@
 
 ![Conformance](https://img.shields.io/badge/Conformance-Check--All%20Passing-brightgreen)
 
-[![Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/org.flowdigger.gradle.antlr.tsql?label=Plugin%20Portal)](https://plugins.gradle.org/plugin/org.flowdigger.gradle.antlr.tsql)
-[![Build and Test](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/ci.yml)
-[![JUnit Report](https://img.shields.io/badge/JUnit-Report-blue?logo=githubactions)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/ci.yml)
-[![Coverage CI](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml)
-[![CodeQL](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/codeql.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/codeql.yml)
-[![Dependency Check](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/dependency-check.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/dependency-check.yml)
-[![SpotBugs Security](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/spotbugs-security.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/spotbugs-security.yml)
-[![Checkstyle](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/checkstyle.yml/badge.svg)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/actions/workflows/checkstyle.yml)
-[![Dependabot](https://img.shields.io/badge/dependabot-enabled-025E8C?logo=dependabot)](https://github.com/jurgenei/gradle-antlr-tsql-plugin/security/dependabot)
-[![Coverage](https://codecov.io/gh/jurgenei/gradle-antlr-tsql-plugin/graph/badge.svg?branch=main)](https://codecov.io/gh/jurgenei/gradle-antlr-tsql-plugin)
+[![Build](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/ci.yml)
+[![Release](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/release.yml/badge.svg)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/release.yml)
+[![Coverage CI](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml/badge.svg)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml)
+[![CodeQL](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/codeql.yml/badge.svg)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/codeql.yml)
+[![Dependency Check](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/dependency-check.yml/badge.svg)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/dependency-check.yml)
+[![SpotBugs Security](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/spotbugs-security.yml/badge.svg)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/spotbugs-security.yml)
+[![Dependabot](https://img.shields.io/badge/dependabot-enabled-025E8C?logo=dependabot)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/security/dependabot)
+[![Coverage](https://codecov.io/gh/flowdigger/gradle-antlr-tsql-plugin/graph/badge.svg?branch=main)](https://codecov.io/gh/flowdigger/gradle-antlr-tsql-plugin?branch=main)
+[![Maven Central](https://img.shields.io/maven-central/v/org.flowdigger.gradle/gradle-antlr-tsql-plugin.svg)](https://search.maven.org/artifact/org.flowdigger.gradle/gradle-antlr-tsql-plugin)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Java](https://img.shields.io/badge/java-21+-green.svg)](https://www.oracle.com/java/)
 [![Gradle](https://img.shields.io/badge/gradle-9.5+-blue.svg)](https://gradle.org/)
@@ -56,7 +55,7 @@ plugins {
 }
 ```
 
-Plugin Portal page: https://plugins.gradle.org/plugin/org.flowdigger.gradle.antlr.tsql
+Maven Central coordinates: `org.flowdigger.gradle:gradle-antlr-tsql-plugin:<version>`
 
 ## What Plugin Adds
 
