@@ -2,6 +2,9 @@
 
 ![Conformance](https://img.shields.io/badge/Conformance-Check--All%20Passing-brightgreen)
 
+[![Release](https://img.shields.io/github/v/release/flowdigger/gradle-antlr-tsql-plugin?sort=semver)](https://central.sonatype.com/search?q=g:org.flowdigger.gradle%20AND%20a:gradle-antlr-tsql-plugin)
+[![Maven Central](https://img.shields.io/maven-central/v/org.flowdigger.gradle/gradle-antlr-tsql-plugin?label=Maven%20Central)](https://central.sonatype.com/search?q=g:org.flowdigger.gradle%20AND%20a:gradle-antlr-tsql-plugin)
+
 [![Build and Test](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/ci.yml?query=branch%3Amain)
 [![Coverage CI](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/flowdigger/gradle-antlr-tsql-plugin/actions/workflows/coverage.yml?query=branch%3Amain)
 [![Coverage](https://codecov.io/gh/flowdigger/gradle-antlr-tsql-plugin/graph/badge.svg?branch=main)](https://app.codecov.io/gh/flowdigger/gradle-antlr-tsql-plugin?branch=main)
