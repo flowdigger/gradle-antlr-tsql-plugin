@@ -160,7 +160,7 @@ sonar {
     }
 }
 
-def grammarDir = file('src/main/antlr/org/flowdigger/parsers')
+def grammarDir = file('src/main/antlr/name/jurgenei/parsers')
 def antlrOutputDir = file('generated-src/antlr/main')
 def antlrPackage = 'org.flowdigger.parsers'
 
@@ -291,8 +291,8 @@ tasks.register('verifyGrammarSources') {
     group = 'verification'
     description = 'Checks that T-SQL grammar source files are present.'
     def required = [
-            'src/main/antlr/org/flowdigger/parsers/TSqlLexer.g4',
-            'src/main/antlr/org/flowdigger/parsers/TSqlParser.g4'
+            'src/main/antlr/name/jurgenei/parsers/TSqlLexer.g4',
+            'src/main/antlr/name/jurgenei/parsers/TSqlParser.g4'
     ]
     def requiredFiles = required.collect { file(it) }
     inputs.files(requiredFiles)
