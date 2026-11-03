@@ -127,10 +127,13 @@ signing {
     sign publishing.publications.mavenJava
 }
 
+def dependencyCheckSuppression = file('dependency-check-suppressions.xml')
 dependencyCheck {
     format = 'HTML,JSON,XML'
     failBuildOnCVSS = 7.0
-    suppressionFile = 'dependency-check-suppressions.xml'
+    if (dependencyCheckSuppression.exists()) {
+        suppressionFile = dependencyCheckSuppression.path
+    }
 
     nvd {
         apiKey = findProperty('org.owasp.dependencycheck.nvd.api.key') ?: System.getenv('NVD_API_KEY')
