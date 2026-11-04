@@ -13,6 +13,7 @@ plugins {
     id 'org.flowdigger.gradle.antlr' version '1.0.0'
     id 'maven-publish'
     id 'signing'
+    id 'checkstyle'
     id 'org.owasp.dependencycheck' version '13.0.0'
     id 'com.github.spotbugs' version '6.1.0'
     id 'org.sonarqube' version '6.0.1.5171'
@@ -20,6 +21,11 @@ plugins {
 
 group = 'org.flowdigger.gradle'
 version = '1.0.0'
+
+checkstyle {
+    toolVersion = '10.26.1'
+    configFile = file('checkstyle.xml')
+}
 
 ext {
     spotbugsEngineVersion = '4.8.6'
@@ -139,7 +145,12 @@ dependencyCheck {
     formats = ['HTML', 'JSON', 'XML']
     failBuildOnCVSS = 7.0
     if (dependencyCheckSuppression.exists()) {
-        suppressionFile = dependencyCheckSuppression.path
+        suppressionFile = dependencyCheckSuppression.absolutePath
+    }
+    analyzers {
+        ossIndex {
+            enabled = false
+        }
     }
 
     nvd {
