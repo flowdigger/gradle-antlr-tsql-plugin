@@ -71,34 +71,30 @@ dependencies {
 }
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
+    publications.withType(MavenPublication).configureEach {
+        pom {
+            name = 'Gradle ANTLR T-SQL Plugin'
+            description = 'Gradle plugin for XML AST conversion of T-SQL sources'
+            url = 'https://github.com/flowdigger/gradle-antlr-tsql-plugin'
 
-            pom {
-                name = 'Gradle ANTLR T-SQL Plugin'
-                description = 'Gradle plugin for XML AST conversion of T-SQL sources'
+            licenses {
+                license {
+                    name = 'MIT License'
+                    url = 'https://opensource.org/licenses/MIT'
+                }
+            }
+
+            developers {
+                developer {
+                    id = 'flowdigger'
+                    name = 'Flowdigger'
+                }
+            }
+
+            scm {
+                connection = 'scm:git:https://github.com/flowdigger/gradle-antlr-tsql-plugin.git'
+                developerConnection = 'scm:git:ssh://git@github.com/flowdigger/gradle-antlr-tsql-plugin.git'
                 url = 'https://github.com/flowdigger/gradle-antlr-tsql-plugin'
-
-                licenses {
-                    license {
-                        name = 'MIT License'
-                        url = 'https://opensource.org/licenses/MIT'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id = 'flowdigger'
-                        name = 'Flowdigger'
-                    }
-                }
-
-                scm {
-                    connection = 'scm:git:https://github.com/flowdigger/gradle-antlr-tsql-plugin.git'
-                    developerConnection = 'scm:git:ssh://git@github.com/flowdigger/gradle-antlr-tsql-plugin.git'
-                    url = 'https://github.com/flowdigger/gradle-antlr-tsql-plugin'
-                }
             }
         }
     }
@@ -138,7 +134,7 @@ signing {
     } else {
         useGpgCmd()
     }
-    sign publishing.publications.mavenJava
+    sign publishing.publications
 }
 
 def dependencyCheckSuppression = file('dependency-check-suppressions.xml')
