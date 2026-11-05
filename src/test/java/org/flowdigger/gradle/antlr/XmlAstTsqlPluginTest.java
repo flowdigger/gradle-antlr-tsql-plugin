@@ -1,4 +1,4 @@
-package name.jurgenei.gradle.antlr;
+package org.flowdigger.gradle.antlr;
 
 import org.gradle.api.Project;
 import org.gradle.testfixtures.ProjectBuilder;
@@ -28,12 +28,12 @@ public class XmlAstTsqlPluginTest {
 
         final XmlAstTsqlGradleTask task = (XmlAstTsqlGradleTask) project.getTasks().getByName("tsqlXmlAst");
         Assert.assertEquals("tsql", task.getGrammar().get());
-        Assert.assertEquals("name.jurgenei.parsers.TSqlParser", task.getParserClassName().get());
-        Assert.assertEquals("name.jurgenei.parsers.TSqlLexer", task.getLexerClassName().get());
+        Assert.assertEquals("org.flowdigger.parsers.TSqlParser", task.getParserClassName().get());
+        Assert.assertEquals("org.flowdigger.parsers.TSqlLexer", task.getLexerClassName().get());
         Assert.assertEquals("tsql_file", task.getStartRule().get());
         Assert.assertTrue(task.getIncludes().get().contains("**/*.sql"));
         Assert.assertEquals(".xml", task.getTargetExtension().get());
-        Assert.assertEquals("compact", task.getXirFormat().get());
+        Assert.assertEquals("compact", task.getOutputFormat().get());
     }
 
     @Test
@@ -45,9 +45,9 @@ public class XmlAstTsqlPluginTest {
 
         final XmlAstTsqlGradleTask task = (XmlAstTsqlGradleTask) project.getTasks().getByName("tsqlXmlAst");
         task.getTargetExtension().set(".xir");
-        task.getXirFormat().set("beautified");
+        task.getOutputFormat().set("beautified");
 
         Assert.assertEquals(".xir", task.getTargetExtension().get());
-        Assert.assertEquals("beautified", task.getXirFormat().get());
+        Assert.assertEquals("beautified", task.getOutputFormat().get());
     }
 }

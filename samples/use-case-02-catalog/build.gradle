@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'antlr'
-    id 'name.jurgenei.gradle.antlr'
+    id 'org.flowdigger.gradle.antlr'
 }
 
 repositories {
@@ -14,7 +14,7 @@ dependencies {
     implementation rootProject
 }
 
-tasks.named('xmlast', name.jurgenei.gradle.antlr.XmlAstGradleTask) {
+tasks.named('xmlast', org.flowdigger.gradle.antlr.XmlAstGradleTask) {
     dependsOn rootProject.tasks.named('compileAntlrSources')
     sourceDirectory.set(rootProject.layout.projectDirectory.dir('src/test/resources/tsql'))
     destinationDirectory.set(layout.buildDirectory.dir('xmlast-samples'))
@@ -23,8 +23,8 @@ tasks.named('xmlast', name.jurgenei.gradle.antlr.XmlAstGradleTask) {
     catalogGrammar.set('tsql')
 
     // Optional override. If omitted, parser/lexer values from catalog are used.
-    parserClassName.set('name.jurgenei.parsers.TSqlParser')
-    lexerClassName.set('name.jurgenei.parsers.TSqlLexer')
+    parserClassName.set('org.flowdigger.parsers.TSqlParser')
+    lexerClassName.set('org.flowdigger.parsers.TSqlLexer')
 
     includes.set(['**/*.sql'])
     targetExtension.set('.xml')

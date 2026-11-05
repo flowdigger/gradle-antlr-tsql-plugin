@@ -1,0 +1,15 @@
+name: Dependency Check
+
+on:
+  push:
+    branches: ["main", "release/**"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  dependency-check:
+    uses: flowdigger/github-workflows/.github/workflows/dependency-check.yml@main
+    secrets: inherit
+    with:
+      trigger-event: ${{ github.event_name }}
