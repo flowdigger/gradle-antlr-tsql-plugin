@@ -100,26 +100,6 @@ publishing {
         }
     }
 
-    repositories {
-        mavenLocal()
-        maven {
-            name = 'sonatype'
-            def releasesRepoUrl = 'https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/'
-            def snapshotsRepoUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
-            url = uri(version.toString().endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl)
-            credentials {
-                username = providers.gradleProperty('mavenCentralUsername').orNull
-                password = providers.gradleProperty('mavenCentralPassword').orNull
-            }
-        }
-    }
-}
-
-if (providers.gradleProperty('signingKey').present && providers.gradleProperty('signingPassword').present) {
-    def signPublicationTasks = tasks.matching { it.name.startsWith('sign') && it.name.endsWith('Publication') }
-    tasks.matching { it.name.startsWith('publish') && it.name.endsWith('PublicationToMavenLocal') }.configureEach {
-        dependsOn signPublicationTasks
-    }
 }
 
 def dependencyCheckSuppression = file('dependency-check-suppressions.xml')
