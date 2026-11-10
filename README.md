@@ -17,7 +17,7 @@
 
 `gradle-antlr-tsql-plugin` provides preconfigured XML AST task support for T-SQL parsing workflows.
 
-It builds on `org.flowdigger.gradle.antlr` and offers task defaults tailored for `TSqlLexer`/`TSqlParser` use cases.
+It builds on `org.flowdigger.antlr` and offers task defaults tailored for `TSqlLexer`/`TSqlParser` use cases.
 
 ## Source Grammar
 
@@ -41,7 +41,7 @@ Included grammar files:
 
 ```groovy
 plugins {
-	id 'org.flowdigger.gradle.antlr.tsql' version '1.0.0'
+	id 'org.flowdigger.antlr.tsql' version '1.0.0'
 }
 ```
 
@@ -65,7 +65,7 @@ Default task conventions:
 ```groovy
 plugins {
 	id 'java'
-	id 'org.flowdigger.gradle.antlr.tsql' version '1.0.0'
+	id 'org.flowdigger.antlr.tsql' version '1.0.0'
 }
 
 tasks.named('tsqlXmlAst', org.flowdigger.gradle.antlr.XmlAstTsqlGradleTask) {
