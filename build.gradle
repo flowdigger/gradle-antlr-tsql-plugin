@@ -10,11 +10,12 @@ plugins {
     id 'antlr'
     id 'java-gradle-plugin'
     id 'jacoco'
-    id 'org.flowdigger.gradle.antlr' version '1.0.0'
+    id 'org.flowdigger.antlr' version '1.0.3'
     id 'maven-publish'
-    id 'signing'
-    id 'checkstyle'
+    id 'org.flowdigger.maven-publish'
+        id 'checkstyle'
     id 'org.owasp.dependencycheck' version '13.0.0'
+    id 'org.flowdigger.dependency-check'
     id 'com.github.spotbugs' version '6.1.0'
     id 'org.sonarqube' version '6.0.1.5171'
 }
@@ -37,7 +38,7 @@ gradlePlugin {
     vcsUrl = 'https://github.com/flowdigger/gradle-antlr-tsql-plugin'
     plugins {
         xmlAstTsql {
-            id = 'org.flowdigger.gradle.antlr.tsql'
+            id = 'org.flowdigger.antlr.tsql'
             implementationClass = 'org.flowdigger.gradle.antlr.XmlAstTsqlPlugin'
             displayName = 'Gradle ANTLR T-SQL Plugin'
             description = 'Preconfigured XML AST task support for T-SQL grammar parsing.'
@@ -60,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.flowdigger.gradle:gradle-antlr-plugin:1.0.1'
+    implementation("org.flowdigger.gradle:gradle-antlr-plugin:1.0.3")
     implementation 'org.antlr:antlr4-runtime:4.13.2'
 
     antlr 'org.antlr:antlr4:4.13.2'
@@ -114,46 +115,14 @@ publishing {
     }
 }
 
-signing {
-    def signingKey = providers.gradleProperty('signingKey').orNull
-    def signingPassword = providers.gradleProperty('signingPassword').orNull
-    def signingKeyId = providers.gradleProperty('signingKeyId').orNull
-    def validKeyIdPattern = ~/(?i)^[0-9a-f]{8}([0-9a-f]{8})?$/
-    def normalizedSigningKeyId = signingKeyId
-            ?.trim()
-            ?.replaceFirst(/^(?i)0x/, '')
-    if (!(normalizedSigningKeyId ==~ validKeyIdPattern)) {
-        normalizedSigningKeyId = null
+if (providers.gradleProperty('signingKey').present && providers.gradleProperty('signingPassword').present) {
+    def signPublicationTasks = tasks.matching { it.name.startsWith('sign') && it.name.endsWith('Publication') }
+    tasks.matching { it.name.startsWith('publish') && it.name.endsWith('PublicationToMavenLocal') }.configureEach {
+        dependsOn signPublicationTasks
     }
-    if (signingKey && signingPassword) {
-        if (normalizedSigningKeyId) {
-            useInMemoryPgpKeys(normalizedSigningKeyId, signingKey, signingPassword)
-        } else {
-            useInMemoryPgpKeys(signingKey, signingPassword)
-        }
-    } else {
-        useGpgCmd()
-    }
-    sign publishing.publications
 }
 
 def dependencyCheckSuppression = file('dependency-check-suppressions.xml')
-dependencyCheck {
-    formats = ['HTML', 'JSON', 'XML']
-    failBuildOnCVSS = 7.0
-    if (dependencyCheckSuppression.exists()) {
-        suppressionFile = dependencyCheckSuppression.absolutePath
-    }
-    analyzers {
-        ossIndex {
-            enabled = false
-        }
-    }
-
-    nvd {
-        apiKey = findProperty('org.owasp.dependencycheck.nvd.api.key') ?: System.getenv('NVD_API_KEY')
-    }
-}
 
 spotbugs {
     toolVersion = spotbugsEngineVersion
